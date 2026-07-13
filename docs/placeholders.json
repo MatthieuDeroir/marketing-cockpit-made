@@ -1,0 +1,183 @@
+{
+  "$schema": "./placeholders.schema.json",
+  "version": "0.3.0",
+  "description": "Canonical list of Mustache-style placeholders used in templates. The wizard replaces them; /validate-setup blocks if any remain. Note: the in-place strategy and persona files (01-brand/personas.md, 02-strategy/objectifs.md, parcours-client.md, kpi-framework.md, channel-strategy.md, content-pillars.md) carry additional fine-grained interview slots (CIBLE_x, P1_*, SEUIL...) filled by /brand-discover Steps 5-6 — they are enumerated by the files themselves, not duplicated here. Entries with marker:true survive the wizard by design and are allow-listed in scripts/lint-placeholders.py.",
+  "groups": {
+    "identity": [
+      { "name": "COMPANY_NAME",          "required": true,  "example": "Acme Inc." },
+      { "name": "COMPANY_SHORT_NAME",    "required": true,  "example": "Acme" },
+      { "name": "COMPANY_WEBSITE",       "required": true,  "example": "https://acme.com" },
+      { "name": "COMPANY_TAGLINE",       "required": false, "example": "Ship faster, ship better" },
+      { "name": "COMPANY_POSITIONING",   "required": true,  "example": "The first developer-first CI platform that scales from solo to enterprise." },
+      { "name": "COMPANY_MISSION",       "required": false, "example": "Empower every developer to ship with confidence" },
+      { "name": "COMPANY_VISION",        "required": false, "example": "A world where shipping code is boring and boring means reliable" },
+      { "name": "COMPANY_SECTOR",        "required": false, "example": "DevOps SaaS" },
+      { "name": "COMPANY_AUDIENCE_SHORT","required": true,  "example": "developers and devops teams" },
+      { "name": "COMPANY_HQ",            "required": false, "example": "Paris, France" },
+      { "name": "COMPANY_FOUNDERS",      "required": false, "example": "Alice Dupont, Bob Martin" },
+      { "name": "COMPANY_MAIN_CONTACT",  "required": true,  "example": "Claire Durand, Head of Marketing" },
+      { "name": "SALES_CONTACT",         "required": false, "example": "Paul Bernard, Sales" },
+      { "name": "EMAIL_CONTACT",         "required": false, "example": "contact@acme.com", "description": "Public contact email shown in page footers and capture sections" }
+    ],
+    "visual_identity": [
+      { "name": "BRAND_FONT_PRIMARY",       "required": true,  "example": "Inter" },
+      { "name": "BRAND_FONT_SECONDARY",     "required": false, "example": "JetBrains Mono" },
+      { "name": "BRAND_COLOR_PRIMARY",      "required": true,  "example": "#1E40AF" },
+      { "name": "BRAND_COLOR_ACCENT",       "required": true,  "example": "#F59E0B" },
+      { "name": "BRAND_COLOR_DARK",         "required": true,  "example": "#0F172A" },
+      { "name": "BRAND_COLOR_LIGHT",        "required": true,  "example": "#F8FAFC" },
+      { "name": "BRAND_GRADIENT",           "required": false, "example": "linear-gradient(90deg, #1E40AF 0%, #F59E0B 100%)" },
+      { "name": "BRAND_BORDER_RADIUS",      "required": false, "example": "12-24px" },
+      { "name": "BRAND_ILLUSTRATION_STYLE", "required": true,  "example": "Minimalist line art, isometric, no stock photos" },
+      { "name": "BRAND_BANNED_VISUALS",     "required": true,  "example": "stock office photos, handshakes, generic laptops, post-its" }
+    ],
+    "voice": [
+      { "name": "BRAND_VOICE_POSITION",       "required": true,  "example": "Expert accessible: rigorous content, warm delivery" },
+      { "name": "BRAND_VOCABULARY_PREFERRED", "required": true,  "example": "platform, team, ship, deploy, developer" },
+      { "name": "BRAND_VOCABULARY_BANNED",    "required": true,  "example": "solution, innovation, game-changer, disrupt, synergy" },
+      { "name": "BRAND_TAGLINES",             "required": false, "example": "Ship faster, ship better. | Boring is the new exciting." },
+      { "name": "BRAND_TOP_NUMBERS",          "required": false, "example": "99.9% uptime | 10k+ developers | 50% faster CI" },
+      { "name": "BRAND_DEFAULT_LANGUAGE",     "required": true,  "example": "en" },
+      { "name": "BRAND_BILINGUAL",            "required": true,  "example": "false" },
+      { "name": "BILINGUAL_RULES",            "required": false, "example": "EN first, FR cultural adaptation" },
+      { "name": "TYPOGRAPHY_RULES",           "required": false, "example": "No em dashes, single space after period" }
+    ],
+    "personas": [
+      { "name": "PERSONA_1_NAME",          "required": true },
+      { "name": "PERSONA_1_DETAILS",       "required": true },
+      { "name": "PERSONA_2_NAME",          "required": false },
+      { "name": "PERSONA_2_DETAILS",       "required": false },
+      { "name": "PERSONA_3_NAME",          "required": false },
+      { "name": "PERSONA_3_DETAILS",       "required": false },
+      { "name": "PERSONA_4_NAME",          "required": false },
+      { "name": "PERSONA_4_DETAILS",       "required": false },
+      { "name": "PERSONA_CHANNEL_MATRIX",  "required": false }
+    ],
+    "pillars_cadence": [
+      { "name": "PILLAR_1", "required": true,  "example": "Data & Expertise (40%) — stats, benchmarks — LinkedIn, Blog" },
+      { "name": "PILLAR_2", "required": false },
+      { "name": "PILLAR_3", "required": false },
+      { "name": "PILLAR_4", "required": false },
+      { "name": "PILLAR_5", "required": false },
+      { "name": "CONTENT_CADENCE_LINKEDIN",   "required": false, "example": "4-5 posts / week" },
+      { "name": "CONTENT_CADENCE_NEWSLETTER", "required": false, "example": "Monthly" },
+      { "name": "CONTENT_CADENCE_BLOG",       "required": false, "example": "2 articles / month" },
+      { "name": "CONTENT_CADENCE_DISCORD",    "required": false, "example": "Weekly" },
+      { "name": "CONTENT_CADENCE_WHATSAPP",   "required": false, "example": "Max 2 / week" },
+      { "name": "CONTENT_KPIS",               "required": false }
+    ],
+    "skill_personalization": [
+      { "name": "BRAND_SPECIFIC_CHECK_RULES", "used_in": "brand-check" },
+      { "name": "SOCIAL_VOICE_DOS",           "used_in": "social-content" },
+      { "name": "SOCIAL_VOICE_DONTS",         "used_in": "social-content" },
+      { "name": "SOCIAL_HOOK_EXAMPLES",       "used_in": "social-content" },
+      { "name": "SOCIAL_SPECIFIC_RULES",      "used_in": "social-content" },
+      { "name": "SOCIAL_EMOJI_RULE",          "used_in": "social-content", "example": "Sparingly, max 1 per post" },
+      { "name": "SOCIAL_DASH_RULE",           "used_in": "social-content", "example": "No em dashes" },
+      { "name": "COPYWRITING_SPECIFIC_RULES", "used_in": "copywriting" },
+      { "name": "COPY_EDITING_SPECIFIC_RULES","used_in": "copy-editing" },
+      { "name": "STRATEGY_SPECIFIC_RULES",    "used_in": "content-strategy" },
+      { "name": "SEO_CLUSTERS",               "used_in": "seo" },
+      { "name": "SEO_SPECIFIC_RULES",         "used_in": "seo" },
+      { "name": "EMAIL_SPECIFIC_RULES",       "used_in": "email" },
+      { "name": "EMAIL_SIGNATURE_LINE",       "used_in": "email", "example": "Talk soon," },
+      { "name": "NEWSLETTER_VOICE",           "used_in": "email" },
+      { "name": "PROMO_VOICE",                "used_in": "email" },
+      { "name": "SALES_VOICE",                "used_in": "email" },
+      { "name": "EVENT_SPECIFIC_RULES",       "used_in": "event-marketing" },
+      { "name": "EVENT_TEAM",                 "used_in": "event-marketing" },
+      { "name": "IMAGE_GEN_SPECIFIC_RULES",   "used_in": "image-generation" },
+      { "name": "IMAGE_GEN_EXAMPLES",         "used_in": "image-generation" },
+      { "name": "SLIDES_SPECIFIC_RULES",      "used_in": "slides" },
+      { "name": "BLOG_CMS",                   "used_in": "seo, 09-seo", "example": "WordPress / Ghost / Hashnode" }
+    ],
+    "tools": [
+      { "name": "EDITORIAL_CALENDAR_TOOL" },
+      { "name": "EDITORIAL_CALENDAR_ENABLED" },
+      { "name": "EDITORIAL_CALENDAR_STATUS_FILTER" },
+      { "name": "EMAIL_MARKETING_TOOL" },
+      { "name": "EMAIL_MARKETING_ENABLED" },
+      { "name": "EMAIL_MARKETING_ENV_KEY" },
+      { "name": "EMAIL_MARKETING_LIST_ID" },
+      { "name": "KNOWLEDGE_BASE_TOOL" },
+      { "name": "KNOWLEDGE_BASE_ENABLED" },
+      { "name": "KNOWLEDGE_BASE_URL" },
+      { "name": "KNOWLEDGE_BASE_ENV_KEY" },
+      { "name": "EVENTS_PLATFORM_TOOL" },
+      { "name": "EVENTS_PLATFORM_ENABLED" },
+      { "name": "EVENTS_PLATFORM_ENV_KEY" },
+      { "name": "CRM_TOOL" },
+      { "name": "CRM_ENABLED" },
+      { "name": "IMAGE_GENERATION_ENABLED" }
+    ],
+    "tracking_acquisition": [
+      { "name": "GA4_MEASUREMENT_ID",     "marker": true, "used_in": "05-web-content (CLAUDE.md, templates gallery), skill landing-page", "description": "GA4 measurement ID (G-XXXX) injected in the gtag snippet of each landing page when web_analytics is enabled — filled per page, stays tokenized in the template gallery", "example": "G-AB12CD34EF" },
+      { "name": "GA4_PROPERTY_ID",        "marker": true, "used_in": "11-reporting/dashboard/data-schema.md", "description": "GA4 property ID used by the reporting module snapshot (module reporting)", "example": "123456789" },
+      { "name": "GOOGLE_ADS_CUSTOMER_ID", "marker": true, "used_in": "12-acquisition/google-ads/, 11-reporting/dashboard/data-schema.md", "description": "Google Ads account ID read by the mcp-google-ads server (module acquisition) — environment variable, see .env.example", "example": "123-456-7890" },
+      { "name": "LEMLIST_SIGNUP_URL",     "marker": true, "used_in": "12-acquisition/setup-lemlist.md, 12-acquisition/README.md", "description": "Public signup/booking URL inserted in Lemlist outreach sequences (module acquisition)", "example": "https://acme.com/demo" },
+      { "name": "CAMPAIGN_SLUG",          "marker": true, "used_in": "skill landing-page (UTM conventions)", "description": "Campaign slug used in UTM naming patterns — resolved per campaign at production time", "example": "lancement-produit-2026" }
+    ],
+    "web_page_markers": [
+      { "name": "FORM_ENDPOINT",        "marker": true, "used_in": "05-web-content/sections-library.md, 05-web-content/templates gallery", "description": "Form POST endpoint (n8n webhook or form service) — replaced when a gallery template is copied into a real page", "example": "https://n8n.example.com/webhook/lead-capture" },
+      { "name": "URL_CONFIDENTIALITE",  "marker": true, "used_in": "05-web-content templates gallery (footers, RGPD mentions)", "description": "URL of the privacy policy page — replaced per copied page", "example": "https://acme.com/confidentialite" },
+      { "name": "LIEN_CONFIDENTIALITE", "marker": true, "used_in": "05-web-content/sections-library.md (capture section)", "description": "Anchor text of the privacy policy link", "example": "politique de confidentialité" },
+      { "name": "MENTION_RGPD",         "marker": true, "used_in": "05-web-content/sections-library.md (capture section)", "description": "RGPD consent sentence next to capture forms", "example": "En soumettant ce formulaire, vous acceptez notre" },
+      { "name": "URL_MENTIONS_LEGALES", "marker": true, "used_in": "05-web-content templates gallery (footers)", "description": "URL of the legal notice page — replaced per copied page", "example": "https://acme.com/mentions-legales" },
+      { "name": "URL_SITE",             "marker": true, "used_in": "05-web-content/templates/lead-magnets/", "description": "Main site URL used in lead-magnet tool footers — replaced per copied page", "example": "https://acme.com" },
+      { "name": "URL_ESSAI",            "marker": true, "used_in": "05-web-content/templates/landing-pages/tarifs.html", "description": "Trial/signup URL — replaced per copied page", "example": "https://app.acme.com/signup" },
+      { "name": "URL_ITINERAIRE",       "marker": true, "used_in": "05-web-content/templates/landing-pages/one-pager-local.html", "description": "Google Maps directions URL for the local one-pager — replaced per copied page", "example": "https://maps.google.com/?q=acme" },
+      { "name": "CONCURRENT",           "marker": true, "used_in": "05-web-content/templates/landing-pages/comparateur-concurrent.html", "description": "Competitor name in the vs-competitor landing template — replaced per comparison page", "example": "CompetitorX" }
+    ],
+    "decks": [
+      { "name": "DECK_TITLE",   "marker": true, "used_in": "06-graphic-design/presentations/templates/base.html", "description": "Title for an individual deck — replaced when copying base.html into decks/" }
+    ],
+    "signatures": [
+      { "name": "NAME",         "used_in": "06-graphic-design/mail-signatures/template.html" },
+      { "name": "ROLE",         "used_in": "06-graphic-design/mail-signatures/template.html" },
+      { "name": "EMAIL",        "used_in": "06-graphic-design/mail-signatures/template.html" },
+      { "name": "PHONE",        "used_in": "06-graphic-design/mail-signatures/template.html", "required": false },
+      { "name": "LINKEDIN_URL", "used_in": "06-graphic-design/mail-signatures/template.html", "required": false }
+    ],
+    "project_meta": [
+      { "name": "PROJECT_SLUG", "required": true, "example": "acme-marketing-cockpit" },
+      { "name": "PROJECT_ROOT", "required": true, "example": "/Users/alice/code/acme-cockpit" },
+      { "name": "SETUP_DATE",   "required": true, "example": "2026-04-15" },
+      { "name": "TODO",         "marker": true,   "description": "Temporary marker for gaps to fill later" },
+      { "name": "MONTH_YEAR",   "used_in": "04-email/newsletter/drafts/", "example": "MARCH_2026" },
+      { "name": "MOIS_ANNEE",   "marker": true,   "used_in": "02-strategy (naming pattern plan-{{MOIS_ANNEE}}.md)", "description": "Runtime naming pattern — never substituted by the wizard (see tools-setup.md)", "example": "mars-2026" }
+    ],
+    "runtime_slots": [
+      { "name": "DATE_LUNDI_ISO",       "marker": true, "used_in": "02-strategy/calendar/calendar.md", "description": "Monday date of the current calendar week — filled when a week section is created", "example": "2026-07-06" },
+      { "name": "DATE_LUNDI_ISO_S1",    "marker": true, "used_in": "02-strategy/calendar/calendar.md", "description": "Monday date of the following week", "example": "2026-07-13" },
+      { "name": "NUMERO_SEMAINE",       "marker": true, "used_in": "02-strategy/calendar/calendar.md", "example": "28" },
+      { "name": "NUMERO_SEMAINE_S1",    "marker": true, "used_in": "02-strategy/calendar/calendar.md", "example": "29" },
+      { "name": "DATE_ISO",             "marker": true, "used_in": "02-strategy/calendar/calendar.md (entry rows)", "description": "Target publication date of a calendar entry — one per row, filled at planning time", "example": "2026-07-08" },
+      { "name": "SUJET",                "marker": true, "used_in": "02-strategy/calendar/calendar.md, 01-brand/personas.md (signaux example)", "description": "Topic of a calendar entry", "example": "Benchmark CI 2026" },
+      { "name": "PILIER",               "marker": true, "used_in": "02-strategy/calendar/calendar.md", "description": "Content pillar of a calendar entry (one of content-pillars.md)", "example": "Data & Expertise" },
+      { "name": "SLUG",                 "marker": true, "used_in": "02-strategy/calendar/calendar.md (deliverable paths)", "example": "benchmark-ci-2026" },
+      { "name": "CAMPAGNE",             "marker": true, "used_in": "02-strategy/calendar/calendar.md (utm_campaign)", "example": "lancement-offre-audit" },
+      { "name": "ANNEE",                "marker": true, "used_in": "02-strategy/calendar/calendar.md (archive naming)", "example": "2026" },
+      { "name": "EXEMPLE_SUJET_BACKLOG","marker": true, "used_in": "02-strategy/calendar/calendar.md (backlog demo row)", "description": "Demo row of the idea backlog — replaced by the first real idea" },
+      { "name": "DATE",                 "marker": true, "used_in": "01-brand/personas.md (signaux 00-intel rows)", "description": "Date of a field signal — one per row, added at classification time", "example": "2026-07-02" },
+      { "name": "SIGNAL",               "marker": true, "used_in": "01-brand/personas.md (signaux 00-intel rows)", "description": "Reformulated, anonymized field signal" },
+      { "name": "IMPACT",               "marker": true, "used_in": "01-brand/personas.md (signaux 00-intel rows)", "description": "What the signal changes (persona, journey, objection...)" }
+    ],
+    "copy_templates_excluded_from_lint": [
+      { "name": "SLUG_CAMPAGNE", "marker": true, "used_in": "02-strategy/briefs/brief-campagne.md", "description": "brief-campagne.md is a copy-template (never filled in place — see 02-strategy/briefs/README.md); the whole file is excluded from lint-placeholders.py along with its ~40 per-campaign slots" }
+    ],
+    "module_import_slots": [
+      { "name": "ERROR_WORKFLOW_ID",           "marker": true, "used_in": "10-automatisations (INSTALL.md, workflows/)", "description": "n8n error-handler workflow ID — filled at import into the user's n8n instance, never by the wizard" },
+      { "name": "N8N_CREDENTIAL_ID_LLM",       "marker": true, "used_in": "10-automatisations/workflows/", "description": "n8n credential ID — filled at workflow import" },
+      { "name": "N8N_CREDENTIAL_ID_METRIQUES", "marker": true, "used_in": "10-automatisations/workflows/", "description": "n8n credential ID — filled at workflow import" },
+      { "name": "N8N_CREDENTIAL_ID_RECHERCHE", "marker": true, "used_in": "10-automatisations/workflows/", "description": "n8n credential ID — filled at workflow import" },
+      { "name": "N8N_CREDENTIAL_ID_SMTP",      "marker": true, "used_in": "10-automatisations/workflows/", "description": "n8n credential ID — filled at workflow import" },
+      { "name": "NOTIFICATION_EMAIL",          "marker": true, "used_in": "10-automatisations/workflows/", "description": "Recipient of n8n error/report notifications — filled at workflow import" },
+      { "name": "SENDER_EMAIL",                "marker": true, "used_in": "10-automatisations/workflows/", "description": "Sender address of n8n notifications — filled at workflow import" },
+      { "name": "VOTRE_DOMAINE",               "marker": true, "used_in": "10-automatisations/INSTALL.md", "description": "Example slot in the n8n VPS install guide — filled by the user during installation" },
+      { "name": "NOM_DU_WORKFLOW",             "marker": true, "used_in": "10-automatisations/rex-template.md", "description": "rex-template.md is a copy-template — one REX per deployed workflow" },
+      { "name": "WORKFLOW_ID",                 "marker": true, "used_in": "10-automatisations/rex-template.md", "description": "rex-template.md copy-template slot" },
+      { "name": "MOIS",                        "marker": true, "used_in": "11-reporting/README.md (notification email subject)", "description": "Month name in the monthly client notification — runtime slot" },
+      { "name": "POSTIZ_URL",                  "marker": true, "used_in": "11-reporting/automation.md", "description": "Postiz instance URL — env-level value referenced in ops docs" }
+    ]
+  }
+}
